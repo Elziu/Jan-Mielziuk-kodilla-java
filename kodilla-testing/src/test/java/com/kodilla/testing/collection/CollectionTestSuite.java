@@ -21,10 +21,10 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList(){
 
         //Given
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
+        List<Integer> emptyList = new ArrayList<Integer>();
 
         //When
-        ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(emptyList);
+        List<Integer> listNumbers = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing" + listNumbers);
 
         //Then
@@ -37,11 +37,11 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList(){
 
         //Given
-        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(364,555,15,400,23,74,23,3,20));
-        ArrayList<Integer> oddList = new ArrayList<Integer>(Arrays.asList(364,400,74,20));
+        List<Integer> list = new ArrayList<Integer>(Arrays.asList(364,555,15,400,23,74,23,3,20));
+        List<Integer> oddList = new ArrayList<Integer>(Arrays.asList(364,400,74,20));
 
         //When
-        ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(list);
+        List<Integer> listNumbers = OddNumbersExterminator.exterminate(list);
         System.out.println("Testing" + listNumbers);
 
         //Then
