@@ -18,6 +18,9 @@ public class ForumUser {
         this.birthDate = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
         this.postsNumber = postsNumber;
     }
+    public int countAge(){
+        return LocalDate.now().getYear() - birthDate.getYear();
+    }
 
     public int getUserId() {
         return userId;
