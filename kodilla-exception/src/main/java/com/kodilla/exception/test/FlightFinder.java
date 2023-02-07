@@ -16,11 +16,16 @@ public class FlightFinder {
                 && flightTo.containsKey(flight.getDepartureAirport())
                 && flightTo.get(flight.getArrivalAirport())
                 && flightTo.get(flight.getDepartureAirport())
-                && !flight.getArrivalAirport().equals(flight.getDepartureAirport())
-        )
-        {
+        ) {
             System.out.println("Flight avaiable.");
-        } else  {
+        } else if(flightTo.containsKey(flight.getArrivalAirport())
+                && flightTo.containsKey(flight.getDepartureAirport())
+                && (flightTo.get(flight.getArrivalAirport()) == false
+                || flightTo.get(flight.getDepartureAirport()) == false))
+                 {
+            System.out.println("Flight unavaiable");
+
+        } else {
             throw new RouteNotFoundException();
         }
 
