@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightFinder {
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> flightTo = new HashMap<>();
 
@@ -17,13 +17,13 @@ public class FlightFinder {
                 && flightTo.get(flight.getArrivalAirport())
                 && flightTo.get(flight.getDepartureAirport())
         ) {
-            System.out.println("Flight avaiable.");
+            return true;
         } else if(flightTo.containsKey(flight.getArrivalAirport())
                 && flightTo.containsKey(flight.getDepartureAirport())
                 && (flightTo.get(flight.getArrivalAirport()) == false
                 || flightTo.get(flight.getDepartureAirport()) == false))
                  {
-            System.out.println("Flight unavaiable");
+            return false;
 
         } else {
             throw new RouteNotFoundException();
