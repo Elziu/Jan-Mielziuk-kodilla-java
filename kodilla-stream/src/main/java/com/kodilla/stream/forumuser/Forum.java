@@ -17,7 +17,7 @@ public class Forum {
         userList.add(new ForumUser(1255, "Kunegunda Wyrypajew", 'F', 1999,10,7, 0));
         userList.add(new ForumUser(8643, "Adam Zabrockii", 'M',2012,7, 6, 6));
         userList.add(new ForumUser(5475, "Maja Przestrzelska", 'F', 1990,12,5, 74));
-        userList.add(new ForumUser(5475, "Dummy Ćwiczeniowy", 'M', 2003,2,2, 74));
+        userList.add(new ForumUser(5475, "Dummy Ćwiczeniowy", 'M', 2003,2,1, 74));
 
     }
 
