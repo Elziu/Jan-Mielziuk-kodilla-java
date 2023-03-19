@@ -14,5 +14,6 @@ public class Main {
         healthyShop.process();
         healthyShop.producerInfo(healthyShop);
 
+
     }
 }

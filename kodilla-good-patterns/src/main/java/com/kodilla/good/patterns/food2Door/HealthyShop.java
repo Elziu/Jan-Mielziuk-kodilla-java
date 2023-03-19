@@ -21,6 +21,7 @@ public class HealthyShop extends Producer implements ProducerService, Informatio
 
         System.out.println("Sending information about quantity and kind of products to Healthy Shop.");
 
+
     }
 }
 

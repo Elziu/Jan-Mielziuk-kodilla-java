@@ -24,6 +24,7 @@ public class Product {
         return quantity;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +

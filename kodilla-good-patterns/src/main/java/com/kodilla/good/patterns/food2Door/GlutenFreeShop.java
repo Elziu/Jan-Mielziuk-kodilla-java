@@ -21,6 +21,7 @@ public class GlutenFreeShop extends Producer implements ProducerService, Informa
 
         System.out.println("Sending information about quantity and kind of products to Gluten Free Shop.");
 
+
     }
 }
 

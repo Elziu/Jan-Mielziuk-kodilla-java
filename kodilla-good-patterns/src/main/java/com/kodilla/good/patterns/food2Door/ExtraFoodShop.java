@@ -30,5 +30,6 @@ public class ExtraFoodShop extends Producer implements ProducerService, Informat
 
         System.out.println("Sending information about quantity and kind of products to Extra Food Shop.");
 
+
     }
 }
