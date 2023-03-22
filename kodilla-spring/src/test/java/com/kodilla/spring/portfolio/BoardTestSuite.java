@@ -14,14 +14,14 @@ public class BoardTestSuite {
     public void testToDoListTaskAdd() {
         //Given
         ApplicationContext context =
-                new AnnotationConfigApplicationContext("com.kodilla.spring");
+                new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
         //When
-        String task = "send emails";
-        board.getDoneList().addTask(task);
+        String task = "walk a dog";
+        board.getToDoList().addTask(task);
 
         //Then
-        assertEquals(task, board.getDoneList().getTasks().get(0));
+        assertEquals(task, board.getToDoList().getTasks().get(0));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class BoardTestSuite {
         board.getInProgressList().addTask(task);
 
         //Then
-        assertEquals(task, board.getDoneList().getTasks().get(0));
+        assertEquals(task, board.getInProgressList().getTasks().get(0));
     }
 
     @Test
