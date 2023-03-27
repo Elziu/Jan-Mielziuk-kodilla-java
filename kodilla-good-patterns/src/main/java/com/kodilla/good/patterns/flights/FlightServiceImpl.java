@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.flights;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlightServiceImpl implements  FlightService {
@@ -13,16 +14,19 @@ public class FlightServiceImpl implements  FlightService {
     @Override
     public void searchFlightToDestination(String destinationAirPort) {
         System.out.println("Searching Flights to Desination:" );
-        flights.stream()
-                .filter(flight -> flight.endDestination.equals(destinationAirPort))
-                .forEach(System.out::println);
+
+        List<Flight> filteredFLights = new ArrayList<>();
+
+        /*flights.stream()
+                .filter(flight -> flight.getEndDestination().equals(destinationAirPort))
+                .forEach(flight -> );*/
     }
 
     @Override
     public void searchFlightFromDestination(String startingAirPort) {
         System.out.println("Searching Flights from Desination:" );
         flights.stream()
-                .filter(flight -> flight.startDestination.equals(startingAirPort))
+                .filter(flight -> flight.getStartDestination().equals(startingAirPort))
                 .forEach(System.out::println);
 
     }

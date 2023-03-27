@@ -4,9 +4,21 @@ import java.util.Objects;
 
 public class Flight {
 
-    String startDestination;
-    String endDestination;
-    String throughDestination;
+    private String startDestination;
+    private String endDestination;
+    private String throughDestination;
+
+    public String getStartDestination() {
+        return startDestination;
+    }
+
+    public String getEndDestination() {
+        return endDestination;
+    }
+
+    public String getThroughDestination() {
+        return throughDestination;
+    }
 
     public Flight(String startDestination, String endDestination, String throughDestination) {
         this.startDestination = startDestination;
