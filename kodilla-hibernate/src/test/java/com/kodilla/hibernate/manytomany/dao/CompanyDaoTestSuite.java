@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -12,6 +14,9 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -58,4 +63,50 @@ class CompanyDaoTestSuite {
 
         }
     }
+
+    @Test
+    public void testRetriveLastNameEquals() {
+        //Given
+        Employee johnSnow = new Employee("John", "Snow");
+        Employee janeDoe = new Employee("Jane", "Doe");
+        Employee janKowalski = new Employee("Jan", "Kowalski");
+
+        //When
+        employeeDao.save(johnSnow);
+        employeeDao.save(janeDoe);
+        employeeDao.save(janKowalski);
+        List<Employee> lastNameEquals = employeeDao.retriveEmployeeByLastName("Doe");
+
+        //Then
+        try {
+            assertEquals(1, lastNameEquals.size());
+        } finally {
+            //CleanUp
+            employeeDao.deleteAll();
+        }
+    }
+
+    @Test
+    public void testRetrieveCompaniesWithFirstThreeLetters(){
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        //When
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+        List<Company> threeFirstLetters = companyDao.retriveCompanyByFirstThreeLetters("dat");
+
+        //Then
+        try {
+            assertEquals(1, threeFirstLetters.size());
+        } finally {
+            //CleanUp
+            companyDao.deleteAll();
+        }
+    }
+
+
 }
