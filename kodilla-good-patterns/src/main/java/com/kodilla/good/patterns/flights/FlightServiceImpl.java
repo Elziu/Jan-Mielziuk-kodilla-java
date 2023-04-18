@@ -13,47 +13,46 @@ public class FlightServiceImpl implements  FlightService {
     }
 
     @Override
-    public void searchFlightToDestination(String destinationAirPort) {
+    public List<Flight> searchFlightToDestination(String destinationAirPort) {
         System.out.println("Searching Flights to Desination:" );
 
-        List<Flight> filteredFlights = flights.stream()
+        List<Flight> flightsToDestination = flights.stream()
                 .filter(flight -> flight.getEndDestination().equals(destinationAirPort))
                 .collect(Collectors.toList());
 
-        System.out.println("# elements: " + filteredFlights.size());
-        filteredFlights.stream()
-                .forEach(System.out::println);
-
+        return flightsToDestination;
     }
 
     @Override
-    public void searchFlightFromDestination(String startingAirPort) {
+    public List<Flight> searchFlightFromDestination(String startingAirPort) {
         System.out.println("Searching Flights from Desination:" );
 
-        List<Flight> filteredFlights = flights.stream()
+        List<Flight> flightsFromDestination = flights.stream()
                 .filter(flight -> flight.getStartDestination().equals(startingAirPort))
                 .collect(Collectors.toList());
 
-        System.out.println("# elements: " + filteredFlights.size());
-        filteredFlights.stream()
-                .forEach(System.out::println);
 
-
+        return flightsFromDestination;
     }
 
-    @Override
-    public void searchFlightThroughDestination(String startingAirPort, String destinationAirPort) {
-        System.out.println("Searching possible flight travels from " + startingAirPort + " to " + destinationAirPort + "." );
-        List<Flight> startAirport = flights.stream()
-                .filter(flight -> flight.getStartDestination().equals(startingAirPort))
+
+    public List<Flight> findConnectingFlights(String startingAirPort, String destinationAirPort, String connectingAirport) {
+
+        System.out.println("Searching possible flight travels from " + startingAirPort + " to " + destinationAirPort + " through " + connectingAirport );
+
+        List<Flight> departureToConnectingFlights = flights.stream()
+                .filter(flight -> flight.getStartDestination().equals(startingAirPort) && flight.getEndDestination().equals(connectingAirport))
                 .collect(Collectors.toList());
 
+        List<Flight> connectingToArrivalFlights = flights.stream()
+                .filter(flight -> flight.getStartDestination().equals(connectingAirport) && flight.getEndDestination().equals(destinationAirPort))
+                .collect(Collectors.toList());
 
+        List<Flight> connectingFlights = new ArrayList<>();
 
-        System.out.println("# elements: " + startAirport.size());
-        startAirport.stream()
-                .forEach(System.out::println);
+        connectingFlights.addAll(departureToConnectingFlights);
+        connectingFlights.addAll(connectingToArrivalFlights);
 
-
+        return connectingFlights;
     }
 }

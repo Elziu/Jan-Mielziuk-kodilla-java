@@ -8,12 +8,12 @@ public class FlightsBase {
     public List<Flight> addFlights(){
         List<Flight> flightList = new ArrayList<>();
 
-        Flight flight1 = new Flight("GDANSK" , "SUWALKI" ,"");
-        Flight flight2 = new Flight("GDANSK" , "WARSZAWA" ,"" );
-        Flight flight3 = new Flight("WARSZAWA" , "MOSKWA" ,"");
-        Flight flight4 = new Flight("SUWALKI" , "SOSNOWIEC" ,"");
-        Flight flight5= new Flight("GDANSK" , "SOSNOWIEC" ,"");
-        Flight flight6 = new Flight("GDANSK" , "LONDYN" ,"");
+        Flight flight1 = new Flight("GDANSK" , "SUWALKI" ,"SOSNOWIEC");
+        Flight flight2 = new Flight("GDANSK" , "WARSZAWA" ,"SUWALKI" );
+        Flight flight3 = new Flight("WARSZAWA" , "MOSKWA" ,"SUWALKI");
+        Flight flight4 = new Flight("SUWALKI" , "SOSNOWIEC" ,"WARSZAWA");
+        Flight flight5= new Flight("GDANSK" , "SOSNOWIEC" ,"SUWALKI");
+        Flight flight6 = new Flight("GDANSK" , "LONDYN" ,"SUWALKI");
 
         Flight flight7 = new Flight("GDANSK" , "LONDYN" , "MOSKWA" );
         Flight flight8 = new Flight("GDANSK" , "MEKSYK" , "WARSZAWA");
