@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.flights;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FlightServiceImpl implements  FlightService {
 
@@ -15,28 +16,44 @@ public class FlightServiceImpl implements  FlightService {
     public void searchFlightToDestination(String destinationAirPort) {
         System.out.println("Searching Flights to Desination:" );
 
-        List<Flight> filteredFLights = new ArrayList<>();
-
-        /*flights.stream()
+        List<Flight> filteredFlights = flights.stream()
                 .filter(flight -> flight.getEndDestination().equals(destinationAirPort))
-                .forEach(flight -> );*/
+                .collect(Collectors.toList());
+
+        System.out.println("# elements: " + filteredFlights.size());
+        filteredFlights.stream()
+                .forEach(System.out::println);
+
     }
 
     @Override
     public void searchFlightFromDestination(String startingAirPort) {
         System.out.println("Searching Flights from Desination:" );
-        flights.stream()
+
+        List<Flight> filteredFlights = flights.stream()
                 .filter(flight -> flight.getStartDestination().equals(startingAirPort))
+                .collect(Collectors.toList());
+
+        System.out.println("# elements: " + filteredFlights.size());
+        filteredFlights.stream()
                 .forEach(System.out::println);
+
 
     }
 
     @Override
-    public void searchFlightThroughDestination(String throughAirPort) {
-        System.out.println("Searching Flights through Desination:" );
-        flights.stream()
-                .filter(flight -> flight.throughDestination.equals(throughAirPort))
+    public void searchFlightThroughDestination(String startingAirPort, String destinationAirPort) {
+        System.out.println("Searching possible flight travels from " + startingAirPort + " to " + destinationAirPort + "." );
+        List<Flight> startAirport = flights.stream()
+                .filter(flight -> flight.getStartDestination().equals(startingAirPort))
+                .collect(Collectors.toList());
+
+
+
+        System.out.println("# elements: " + startAirport.size());
+        startAirport.stream()
                 .forEach(System.out::println);
+
 
     }
 }

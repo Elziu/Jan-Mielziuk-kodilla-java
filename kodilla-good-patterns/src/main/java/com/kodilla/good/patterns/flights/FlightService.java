@@ -4,5 +4,5 @@ public interface FlightService {
 
     void searchFlightToDestination(String destinationAirPort);
     void searchFlightFromDestination(String startingAirPort);
-    void searchFlightThroughDestination(String throughAirPort);
+    void searchFlightThroughDestination(String startingAirPort, String destinationAirPort);
 }

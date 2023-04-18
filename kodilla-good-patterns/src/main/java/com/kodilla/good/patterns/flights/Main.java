@@ -5,8 +5,9 @@ public class Main {
         FlightsBase flightsBase = new FlightsBase();
         FlightServiceImpl flightService = new FlightServiceImpl(flightsBase.addFlights());
 
-        flightService.searchFlightFromDestination("GDANSK");
-        flightService.searchFlightThroughDestination("WARSZAWA");
-        flightService.searchFlightToDestination("LONDYN");
+        /*flightService.searchFlightFromDestination("GDANSK");
+        flightService.searchFlightToDestination("LONDYN");*/
+
+        flightService.searchFlightThroughDestination("GDANSK", "MOSKWA");
     }
 }
